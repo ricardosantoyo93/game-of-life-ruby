@@ -1,0 +1,46 @@
+{
+  "name": "game_of_life_ruby",
+  "private": true,
+  "dependencies": {
+    "@babel/preset-react": "^7.10.1",
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "4.2.2",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.19.2",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "sass": "^1.26.8",
+    "styled-components": "^5.1.0",
+    "workerize-loader": "^1.1.0",
+    "turbolinks": "^5.2.0"
+  },
+  "version": "0.1.0",
+  "jest": {
+    "moduleNameMapper": {
+      "^workerize-loader!(.*)/workers(.*)": "<rootDir>/app/test/__mocks__/mock.worker.js"
+    }
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.10.7",
+    "body-parser": "^1.19.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "express": "^4.17.1",
+    "express-pino-logger": "^5.0.0",
+    "node-env-run": "^3.0.2",
+    "nodemon": "^2.0.3",
+    "npm-run-all": "^4.1.5",
+    "pino-colada": "^1.6.1",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

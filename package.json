@@ -27,7 +27,7 @@
   "version": "0.1.0",
   "jest": {
     "moduleNameMapper": {
-      "^workerize-loader!(.*)/workers(.*)": "<rootDir>/app/test/__mocks__/mock.worker.js"
+      "^workerize-loader!(.*)/workers(.*)": "<rootDir>/test/__mocks__/mock.worker.js"
     }
   },
   "devDependencies": {

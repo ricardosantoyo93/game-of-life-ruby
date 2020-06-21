@@ -77,7 +77,8 @@ const Grid = ({ run, toggleRun , grid, setNewGrid }) => {
     const startExecution = () => {
         setStart(!start);
         toggleRun();
-        workerInstance.calculateNewGrid(grid);
+        const token = document.querySelector('[name=csrf-token]').content;
+        workerInstance.calculateNewGrid(grid, token);
     }
 
     const stopExecution = () => {
@@ -106,6 +107,7 @@ const Grid = ({ run, toggleRun , grid, setNewGrid }) => {
             const { method, grid } = data;
             switch(method) {
               case 'update-grid':
+                  debugger;
                 setNewGrid(grid);
                 break;
               case 'worker-stopped':

@@ -14,17 +14,6 @@ module Api
                 render json: newGrid
             end
 
-            def index 
-                if !params[:grid] then 
-                    return render json: { error: "Please provide a grid"}
-                end
-
-                grid = params[:grid]
-                newGrid = caculateNewGrid(grid)
-
-                render json: newGrid
-            end
-
             def caculateNewGrid (grid)
                 newGrid = grid.map(&:dup)
 

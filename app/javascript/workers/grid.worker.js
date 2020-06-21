@@ -7,19 +7,27 @@ let interval = null;
  * Takes an original grid, calculates each iteration of each cell, and then sends a message to the main thread to update the grid
  * @param {Array<Array<Boolean>>} grid Original grid
  */
-export const calculateNewGrid = async (grid, token = '') => {
+export const calculateNewGridClient = async (grid) => {
+    let baseGrid = [...grid];
+
+    interval = setInterval(async () => {
+        baseGrid = getNewGrid(baseGrid);
+
+        postMessage({ method: 'update-grid', grid: baseGrid });
+    }, 300);
+}
+
+export const calculateNewGridServer = async (grid, token = '') => {
     let baseGrid = [...grid];
     axios.defaults.headers.common['X-CSRF-TOKEN'] = token;
 
     interval = setInterval(async () => {
-        /* const res = await axios.post('/api/v1/grid', { grid: baseGrid });
+        const res = await axios.post('/api/v1/grid', { grid: baseGrid });
 
-        baseGrid = res.data; */
-
-        baseGrid = getNewGrid(baseGrid);
+        baseGrid = res.data;
 
         postMessage({ method: 'update-grid', grid: baseGrid });
-    }, 100);
+    }, 1000);
 }
 
 /**

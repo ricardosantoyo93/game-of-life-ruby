@@ -52,12 +52,12 @@ module Api
             def getAliveNeighbourCells (grid, row, col)
                 alive = 0
 
-                for tmpRow in -1..2
-                    for tmpCol in -1..2
-                        if tmpRow != 0 or tmpCol != 0 then
+                for tmpRow in -1..1
+                    for tmpCol in -1..1
+                        unless tmpRow == 0 and tmpCol == 0
                             if defined?(grid[row + tmpRow]) and defined?(grid[row + tmpRow][col + tmpCol]) then
                                 if grid[row + tmpRow][col + tmpCol] then
-                                    alive = alive + 1
+                                    alive+= 1
                                 end
                             end
                         end

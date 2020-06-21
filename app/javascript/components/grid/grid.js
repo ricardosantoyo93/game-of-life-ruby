@@ -42,21 +42,41 @@ const Button = styled.button`
             border-color: #844
         `
     }
-  `
+`
 
 const Random = styled.button`
-  background: #448;
-  border-radius: 3px;
-  border: 2px solid #448;
-  color: white;
-  margin: 0 1em;
-  padding: 0.25em 1em;
-  font-size: 16px;
-  text-transform: uppercase;
+    background: #448;
+    border-radius: 3px;
+    border: 2px solid #448;
+    color: white;
+    margin: 0 1em;
+    padding: 0.25em 1em;
+    font-size: 16px;
+    text-transform: uppercase;
 
-  &:disabled {
-    background-color: gray;
-  }
+    &:disabled {
+        background-color: gray;
+    }
+`
+
+const Select = styled.select`
+    background: #558;
+    border-radius: 3px;
+    border: 2px solid #558;
+    color: white;
+    margin: 0 1em;
+    padding: 0.25em 1em;
+    font-size: 16px;
+    text-transform: uppercase;
+
+    &:disabled {
+        background-color: gray;
+    }
+
+    option {
+        margin: 0 1em;
+        padding: 0.25em 1em;
+    }
 `
 
 const Grid = ({ run, toggleRun , grid, setNewGrid }) => {
@@ -64,6 +84,9 @@ const Grid = ({ run, toggleRun , grid, setNewGrid }) => {
     const rows = grid.length;
     const cols = grid[0].length;
     const [start, setStart] = useState(run);
+
+    // Flag for calculations source
+    let source = "client";
 
     for(let row = 0; row < grid.length; row++){
         let rowItems = [];
@@ -78,13 +101,21 @@ const Grid = ({ run, toggleRun , grid, setNewGrid }) => {
         setStart(!start);
         toggleRun();
         const token = document.querySelector('[name=csrf-token]').content;
-        workerInstance.calculateNewGrid(grid, token);
+        if(source === "client") {
+            workerInstance.calculateNewGridClient(grid);
+        } else {
+            workerInstance.calculateNewGridServer(grid, token);
+        }
     }
 
     const stopExecution = () => {
         setStart(!start);
         toggleRun();
         workerInstance.stopWorker()
+    }
+
+    const selectSource = (e) => {
+        source = e.target.value;
     }
 
     const randomizeCells = () => {
@@ -107,7 +138,6 @@ const Grid = ({ run, toggleRun , grid, setNewGrid }) => {
             const { method, grid } = data;
             switch(method) {
               case 'update-grid':
-                  debugger;
                 setNewGrid(grid);
                 break;
               case 'worker-stopped':
@@ -131,6 +161,13 @@ const Grid = ({ run, toggleRun , grid, setNewGrid }) => {
             </Container>
             <br />
             <span>
+                <Select onChange={ (e) => selectSource(e) } disabled={run}>
+                    <option value="" hidden>
+                        Client (300ms)
+                    </option>
+                    <option value="client">Client (300ms)</option>
+                    <option value="server">Server (1s)</option>
+                </Select>
                 <Random onClick={ () => randomizeCells()} disabled={run} >Randomize</Random>
                 <Button onClick={ () => start ? stopExecution() : startExecution() } stop={run} >{start ? 'Stop' : 'Start'}</Button>
             </span>

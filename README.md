@@ -1,5 +1,5 @@
 # The Game of Life: Cellular Automata
-React JS approach of Conway's Game of Life.
+Ruby on Rails and React JS approach of Conway's Game of Life.
 
 The game is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves.
 
@@ -14,12 +14,12 @@ Go to its [Wikipedia Page](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
 
 ## Playing the game
 
-1. After installing all the packages, run the project with `npm run dev` and open it in the browser (localhost:3000)
+1. After installing all the gems and packages, run the project with `rails s` (see Running the Project section of this document)
 2. Select the dimensions for the grid; you can set custom ones, select a default one, or click on Random.
 3. Select the initial set of living cells; You can (un)select each cell individually or click on Randomize to fill the grid with random cells (Recommended)
 4. Press START and watch the cells evolve.
 
-Pro-tip: You can select the source you want for the calculations, it can be the Client or the Server. The time gap between cycles will increase to 1s when selecting the Server, this is due the wait time bewteen network requests. The time gap for the Client is 300ms.
+Pro-tip: You can select the source you want for the calculations, it can be the Client or the Server. The time gap between cycles will increase to 1s when selecting the Server, this is due the wait time bewteen network requests. The time gap between cycles for the Client is 300ms.
 
 Pro-tip 2: you can stop the execution at any moment clicking on STOP, then change the current set of cells if you want, and restart the execution clicking on START again.
 
@@ -46,3 +46,9 @@ To install all the javascript packages
 To run the project
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+## Tests
+
+Totest the project, simply run the next script
+
+### `yarn jest`

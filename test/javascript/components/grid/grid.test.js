@@ -1,9 +1,7 @@
 import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
-import { Grid } from './grid';
+import { Grid } from '../../../../app/javascript/components/grid/grid';
 import Adapter from 'enzyme-adapter-react-16';
-import styled from 'styled-components'
-import { enzymeFind, findAll } from 'styled-components/test-utils'
 import 'jest-styled-components';
 
 Enzyme.configure({ adapter: new Adapter() });

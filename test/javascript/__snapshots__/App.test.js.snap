@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App matches snapshot 1`] = `
+.c1 {
+  background: #088;
+  border-radius: 3px;
+  border: 2px solid #088;
+  color: white;
+  margin: 0 1em;
+  padding: 0.25em 1em;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.c1:disabled {
+  background-color: gray;
+}
+
+.c2 {
+  background: transparent;
+  border-radius: 3px;
+  border: 2px solid palevioletred;
+  color: palevioletred;
+  margin: 0 1em;
+  padding: 0.25em 1em;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.c2:disabled {
+  background-color: gray;
+}
+
+.c0 {
+  background: transparent;
+  border-radius: 3px;
+  border: 2px solid #bbb;
+  color: #bbb;
+  margin: 0 1em;
+  padding: 0.25em 1em;
+  font-size: 16px;
+  width: 100px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.c0:disabled {
+  background-color: gray;
+}
+
+<div
+  className="App"
+>
+  <div
+    className="App-container"
+  >
+    <p>
+      Select grid dimensions
+    </p>
+    <br />
+    <span>
+      <input
+        className="c0"
+        disabled={false}
+        max="50"
+        min="1"
+        placeholder="Rows"
+        type="number"
+      />
+      x
+      <input
+        className="c0"
+        disabled={false}
+        max="50"
+        min="1"
+        placeholder="Columns"
+        type="number"
+      />
+      <button
+        className="c1"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        Create Grid
+      </button>
+    </span>
+    <br />
+    <span>
+      <button
+        className="c2"
+        disabled={false}
+        id="createGrid1"
+        onClick={[Function]}
+        type="button"
+      >
+        20 x 30
+      </button>
+      <button
+        className="c2"
+        disabled={false}
+        id="createGrid2"
+        onClick={[Function]}
+        type="button"
+      >
+        30 x 40
+      </button>
+      <button
+        className="c2"
+        disabled={false}
+        id="createGrid3"
+        onClick={[Function]}
+        type="button"
+      >
+        40 x 50
+      </button>
+      <button
+        className="c2"
+        disabled={false}
+        id="randomGrid"
+        onClick={[Function]}
+        type="button"
+      >
+        Random
+      </button>
+    </span>
+  </div>
+</div>
+`;

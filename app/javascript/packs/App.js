@@ -165,10 +165,10 @@ export class App extends Component {
           </span>
           <br />
           <span>
-            <DefaultBtn disabled={run} type={"button"} onClick={()=> this.createSpecificGrid(20, 30) }>20 x 30</DefaultBtn>
-            <DefaultBtn disabled={run} type={"button"} onClick={()=> this.createSpecificGrid(30, 40)}>30 x 40</DefaultBtn>
-            <DefaultBtn disabled={run} type={"button"} onClick={()=> this.createSpecificGrid(40, 50)}>40 x 50</DefaultBtn>
-            <DefaultBtn disabled={run} type={"button"} onClick={this.handleRandomClick}>Random</DefaultBtn>
+            <DefaultBtn id="createGrid1" disabled={run} type={"button"} onClick={()=> this.createSpecificGrid(20, 30) }>20 x 30</DefaultBtn>
+            <DefaultBtn id="createGrid2" disabled={run} type={"button"} onClick={()=> this.createSpecificGrid(30, 40)}>30 x 40</DefaultBtn>
+            <DefaultBtn id="createGrid3" disabled={run} type={"button"} onClick={()=> this.createSpecificGrid(40, 50)}>40 x 50</DefaultBtn>
+            <DefaultBtn id="randomGrid" disabled={run} type={"button"} onClick={this.handleRandomClick}>Random</DefaultBtn>
           </span>
         </div>
       </div>

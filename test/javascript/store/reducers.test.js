@@ -1,7 +1,7 @@
-import GridReducer from '../components/grid/reducer';
-import gridTypes from '../components/grid/action-types';
-import CoreReducer from '../components/reducer';
-import coreTypes from '../components/action-types';
+import GridReducer from '../../../app/javascript/components/grid/reducer';
+import gridTypes from '../../../app/javascript/components/grid/action-types';
+import CoreReducer from '../../../app/javascript/components/reducer';
+import coreTypes from '../../../app/javascript/components/action-types';
 
 describe('Reducers', () => {
     describe('Core Reducers', () => {

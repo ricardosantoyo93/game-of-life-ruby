@@ -1,7 +1,7 @@
-import GridActions from '../components/grid/actions';
-import gridTypes from '../components/grid/action-types';
-import CoreActions from '../components/actions';
-import coreTypes from '../components/action-types';
+import GridActions from '../../../app/javascript/components/grid/actions';
+import gridTypes from '../../../app/javascript/components/grid/action-types';
+import CoreActions from '../../../app/javascript/components/actions';
+import coreTypes from '../../../app/javascript/components/action-types';
 
 describe('Actions', () => {
     describe('Core Actions', () => {

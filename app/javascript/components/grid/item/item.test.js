@@ -17,7 +17,14 @@ describe('Item Component', () => {
 
     test('renders', () => {
         const wrapper = shallow(<Item options={options} aliveArray={aliveArray} />);
-
         expect(wrapper.exists()).toBe(true);
+    });
+
+    test('calls toggleCell on click', () => {
+        const toggleCell = jest.fn();
+        const wrapper = mount(<Item options={options} aliveArray={aliveArray} toggleCell={toggleCell} />);
+
+        wrapper.find('div').simulate('click');
+        expect(toggleCell).toHaveBeenCalled();
     });
 });

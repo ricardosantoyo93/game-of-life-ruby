@@ -1,6 +1,6 @@
 import types from './action-types';
 
-const GridReducer = (state, { type, payload }) => {
+const GridReducer = (state = {}, { type, payload }) => {
     switch(type) {
         case types.GRID_TOGGLE_ALIVE_CELL:
             const { row, col } = payload;

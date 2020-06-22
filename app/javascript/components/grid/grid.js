@@ -79,7 +79,7 @@ const Select = styled.select`
     }
 `
 
-const Grid = ({ run, toggleRun , grid, setNewGrid }) => {
+export const Grid = ({ run, toggleRun , grid, setNewGrid }) => {
     const items = [];
     const rows = grid.length;
     const cols = grid[0].length;
@@ -100,7 +100,7 @@ const Grid = ({ run, toggleRun , grid, setNewGrid }) => {
     const startExecution = () => {
         setStart(!start);
         toggleRun();
-        const token = document.querySelector('[name=csrf-token]').content;
+        const token = document.querySelector('[name=csrf-token]') ? document.querySelector('[name=csrf-token]').content : '';
         if(source === "client") {
             workerInstance.calculateNewGridClient(grid);
         } else {
@@ -168,8 +168,8 @@ const Grid = ({ run, toggleRun , grid, setNewGrid }) => {
                     <option value="client">Client (300ms)</option>
                     <option value="server">Server (1s)</option>
                 </Select>
-                <Random onClick={ () => randomizeCells()} disabled={run} >Randomize</Random>
-                <Button onClick={ () => start ? stopExecution() : startExecution() } stop={run} >{start ? 'Stop' : 'Start'}</Button>
+                <Random id="randomizer" onClick={ () => randomizeCells()} disabled={run} >Randomize</Random>
+                <Button id="toggleStart" onClick={ () => start ? stopExecution() : startExecution() } stop={run} >{start ? 'Stop' : 'Start'}</Button>
             </span>
         </>
     )
